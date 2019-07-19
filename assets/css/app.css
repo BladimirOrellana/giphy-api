@@ -1,0 +1,56 @@
+*, *::after, *::before{
+
+    margin: 0;
+    padding: 0;
+}
+
+.main-container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.buttons-container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.button{
+   padding: 10px;
+   border-radius: 5px;
+   width: 100px;
+   outline: none;
+
+}
+
+.git-and-add-container{
+    padding: 10px;
+}
+.git-and-add-container::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.gif-container{
+    width: 60% ;
+    float: left;
+    padding: 10px;
+    margin-left: 10px;
+    
+}
+
+.gifClass{
+    width: 200px;
+    height: 200px;
+    float: left;
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+}
+.add-container{
+    width: 30% ;
+    float: left;
+    margin-left: 10px;
+    padding: 10px;
+}
