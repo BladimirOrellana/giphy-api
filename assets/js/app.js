@@ -1,6 +1,6 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 
-var randon = ['funny','scary','cry','latino','llorar'];
+var randon = ['funny','scary','cry','latino','llorar','yes','No','latinos','mexicanos','never'];
 
 var getRandonGif = randon[Math.floor(Math.random() * randon.length)];
 
@@ -14,17 +14,17 @@ method: "GET"
     console.log(response)
     $(".header")
     .css( 
-        "background-image", " url("+ response.data[0].images.downsized_large.url +")");
+        "background-image", " url("+ response.data[0].images.original.url +")");
 
 })
 
-var names = ["funny","scary", "surprice"];
+var names = ["funny","scary", "yes"];
 var userInput;
 var template ;
 
 // SEARCH FOR GIF FUNCTION
 function showGifInfo(){
-    
+    $(".git-and-add-container").empty();
     var gifName = $(this).attr("data-name");
     
   
@@ -35,36 +35,57 @@ method: "GET"
 
 }).then(function(response){
     console.log(response);
+    var gif = response.data;
   
-for (var a = 0; a < response.data.length; a++){
-   
+for (var a = 0; a < gif.length; a++){
 var newContainer = $("<div >");
 newContainer.addClass("newDiv");
-newContainer.attr("data-id", response.data[a].title );
+var image = $("<img>");
+image.attr('src', gif[a].images.original_still.url);
+image.attr('src', gif[a].images.original_still.url);
+ image.attr('data-still', gif[a].images.original_still.url);
+ image.attr('data-animate', gif[a].images.original.url);
+ image.attr('data-state', 'still');
+ image.attr('data-alt', gif[a].title  );
+image.addClass("gif");
+
+newContainer.append(image);
 
 
-newContainer.html(`
 
-<p>` + response.data[a].title + `</p>
-<video class="gifImage" id=` +response.data[a].id + ` autoplay>
-   <source src="`+ response.data[a].images.original.mp4 +`" type="video/mp4">
-  
-   Your browser does not support the video tag.
-</video>
 
-`);
 
-$(".git-and-add-container").prepend(newContainer);
+
+$(".git-container").prepend(newContainer);
 
 
 
 }
+$(".gif").on('click', function(){
+
+    var state = $(this).attr('data-state');
+    var still = $(this).attr('data-still');
+    var animate = $(this).attr('data-animate');
+
+    if(state === "still"){
+       $(this).attr('src', animate);
+       $(this).attr('data-state', 'animate');
+
+    }else{
+        $(this).attr('src', still);
+        $(this).attr('data-state', 'still'); 
+    }
+})
 //GET SINGLE GIF
 getSingleGif()
 })
 
 
 }
+//CHECK IF STATE IS STILL OR ANIMATE
+
+
+   
 
 //GET USER INPUT FUNCTION
 function renderButtons(){
@@ -91,6 +112,7 @@ function addNewButton(){
 $("#button").on('click', function(event){
     event.preventDefault();
     var gifName = $("#addNewGif").val().trim();
+   
     if(gifName === ""){
         $("#addNewGif").css("border", "1px solid red");
         $(".page-title").html("Input is Empty!");
@@ -131,6 +153,7 @@ function getSingleGif(){
     })  
 }
 addNewButton()
+
 //DOCUMENT ON CLICK 
 $(document).on('click',".get-gif", showGifInfo);
 

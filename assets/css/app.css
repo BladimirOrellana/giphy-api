@@ -15,9 +15,12 @@
 
 }
 .nav{
-    background: black;
-    color: white;
+    border: 1px solid purple;
+  background-image: linear-gradient(to right bottom,
+ rgba(214, 18, 168, 0.8),
+ rgba(200, 18, 251, 0.8));
     padding: 20px;
+ 
 }
 .nav::after{
     display: block;
@@ -150,15 +153,16 @@ border-radius: 100px;
 }
 
 /*----GIF DIV CONTAINER ----*/
-.git-and-add-container{
+.git-container{
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 10px;
+  padding: 10px;
+  
     
 }
 
-.git-and-add-container::after{
+.git-container::after{
     display: block;
     content: "";
     clear: both;
@@ -168,7 +172,6 @@ border-radius: 100px;
 .newDiv{
 width:20%;
 height: 250px;
-padding: 5px;
  color: white;
  float: left;
  margin-top: 10px;
@@ -178,6 +181,17 @@ padding: 5px;
  background-image: linear-gradient(to right bottom,
  rgba(142, 18, 214, 0.8),
  rgba(18, 251, 213, 0.8));
+ 
+ 
+}
+
+.newDiv:hover{
+    box-shadow: 2px 2px 2px plum;
+    transform: translateY(-5px);
+}
+.newDiv:active{
+    box-shadow: 4px 4px 4px plum;
+    transform: translateY(-2px);
 }
 .gifImage{
  width:100%;
@@ -188,6 +202,12 @@ padding: 5px;
    outline: none;
 
 }
+.gif{
+ width: 100%;
+ height: 100%;
+ border-radius: 10px;
+}
+
 @media screen and (max-width: 600px){
 
     .title-container{
@@ -232,7 +252,7 @@ padding: 5px;
         outline: none;
         letter-spacing: 2px;
         text-transform: uppercase;
-        
+       
     }
     .gifClass{
         width:400px ;
