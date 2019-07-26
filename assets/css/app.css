@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+a,a::after,a::before{
+    text-decoration: none;
+    color: white;
+}
+
 .main-container{
     max-width: 100%;
     margin: 0 auto;
@@ -89,6 +94,7 @@ border-radius: 100px;
 .page-title{
     margin-bottom: 40px;
     color: white;
+    font-size: 50px;
 }
 .btn{
   outline: none;
@@ -157,7 +163,7 @@ border-radius: 100px;
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding-bottom: 100px;
+    padding: 10px;
  
   
     
@@ -211,6 +217,7 @@ height: 250px;
  border-top-left-radius: 10px;
  border-top-right-radius: 10px;
  
+ 
 }
 
 .git-footer{
@@ -224,7 +231,23 @@ height: 250px;
 .float-left{
     float: left;
     
+    
 }
+
+.float-right{
+    float: right;
+    padding: 10px 5px 5px 5px;
+}
+
+.float-right-share-icones{
+    float: right;
+    padding: 10px 5px 5px 5px;
+}
+.float-right-share-icones:hover{
+    font-size: 20px;
+    color: purple;
+}
+
 .git-rating{
     padding: 5px 0px 5px 5px;
 }
@@ -234,7 +257,9 @@ height: 250px;
 }
 
 @media screen and (max-width: 600px){
-
+    .nav{
+        display: none;
+    }
     .title-container{
         max-width:500px;
         margin: 0 auto;
