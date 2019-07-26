@@ -41,15 +41,31 @@ for (var a = 0; a < gif.length; a++){
 var newContainer = $("<div >");
 newContainer.addClass("newDiv");
 var image = $("<img>");
+var gitFooter = $("<div>");
+var gitRating = $("<p>");
+var gitRatingIcon = $("<i>");
+var gitSharedFLink = $("<a>");
+gitSharedFLink.attr('href', 'http://www.facebook.com/share.php?u='+gif[a].images.original_still.url+'&title='+gif[a].title );
+gitSharedFLink.addClass("facebook-share float-left");
+gitRatingIcon.addClass("fa fa-star float-left");
+gitRating.addClass("git-rating float-left");
+gitRating.html(gif[a].rating);
+gitSharedFLink.html("facebook");
+gitFooter.append(gitRating);
+gitFooter.append(gitRatingIcon);
+gitFooter.append(gitSharedFLink);
+
+
+gitFooter.addClass("git-footer");
+newContainer.append(gitFooter);
 image.attr('src', gif[a].images.original_still.url);
-image.attr('src', gif[a].images.original_still.url);
- image.attr('data-still', gif[a].images.original_still.url);
+image.attr('data-still', gif[a].images.original_still.url);
  image.attr('data-animate', gif[a].images.original.url);
  image.attr('data-state', 'still');
  image.attr('data-alt', gif[a].title  );
 image.addClass("gif");
 
-newContainer.append(image);
+newContainer.prepend(image);
 
 
 
@@ -115,7 +131,7 @@ $("#button").on('click', function(event){
    
     if(gifName === ""){
         $("#addNewGif").css("border", "1px solid red");
-        $(".page-title").html("Input is Empty!");
+        $(".page-title").html("Please Enter A gif name!");
     }else{
         names.push(gifName);
         renderButtons();
