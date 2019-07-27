@@ -24,7 +24,7 @@ var template ;
 
 // SEARCH FOR GIF FUNCTION
 function showGifInfo(){
-    $(".git-and-add-container").empty();
+    $(".git-container").empty();
     var gifName = $(this).attr("data-name");
     
   
